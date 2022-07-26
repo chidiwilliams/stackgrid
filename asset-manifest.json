@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/stackgrid/static/css/main.bbfdcf35.css",
-    "main.js": "/stackgrid/static/js/main.e7f6fc7d.js",
+    "main.js": "/stackgrid/static/js/main.9f8f0f91.js",
     "static/js/787.d1d4a2c2.chunk.js": "/stackgrid/static/js/787.d1d4a2c2.chunk.js",
     "index.html": "/stackgrid/index.html",
     "main.bbfdcf35.css.map": "/stackgrid/static/css/main.bbfdcf35.css.map",
-    "main.e7f6fc7d.js.map": "/stackgrid/static/js/main.e7f6fc7d.js.map",
+    "main.9f8f0f91.js.map": "/stackgrid/static/js/main.9f8f0f91.js.map",
     "787.d1d4a2c2.chunk.js.map": "/stackgrid/static/js/787.d1d4a2c2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bbfdcf35.css",
-    "static/js/main.e7f6fc7d.js"
+    "static/js/main.9f8f0f91.js"
   ]
 }
