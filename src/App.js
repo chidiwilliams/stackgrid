@@ -118,6 +118,14 @@ function App() {
 
   return (
     <div className="App">
+      <h1>StackGrid Playground</h1>
+      <p>
+        Select an example, click Run, then click Replay to watch how the grid changed.{' '}
+        <a target="__blank" href="https://github.com/langjam/jam0003/tree/main/stackgrid">
+          Learn more
+        </a>
+        .
+      </p>
       <div style={{ marginBottom: 10 }}>
         <label>
           Examples
