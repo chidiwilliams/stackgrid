@@ -1,36 +1,42 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Spreadsheet from 'react-spreadsheet';
+import { Interpreter } from 'stackgrid';
 import './App.css';
 
-import { Interpreter } from 'stackgrid';
-
 /**
- * @type {string[][]}
+ * @type {{value: string}[][]}
  */
 const ip = [];
 
+/**
+ * @type {({type: 'state', state: {value: string}[][]} | {type: 'log', log: string})[]}
+ */
+const initialDebug = [];
+
+const examples = {
+  helloWorld:
+    '%09%09%09%09%0AJSE%20B2%20A5%0933%09%09%09%0APRINTASCII%20B2%09100%09%09%09%0AJUMP%20A2%09108%09%09%09%0AEXIT%09114%09%09%09%0A%09111%09%09%09%0A%0987%09%09%09%0A%0932%09%09%09%0A%0944%09%09%09%0A%09111%09%09%09%0A%09108%09%09%09%0A%09108%09%09%09%0A%09101%09%09%09%0A%0972%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09',
+};
+
+/**
+ * @type {string[]}
+ */
+const initialLogs = [];
+
 function App() {
   const [input, setInput] = useState(ip);
-  const [debugs, setDebugs] = useState([]);
-  const [logs, setLogs] = useState([]);
+  const [debugs, setDebugs] = useState(initialDebug);
+  const [logs, setLogs] = useState(initialLogs);
 
   useEffect(() => {
     onReset();
   }, []);
 
-  const onInput = (rowIndex, columnIndex, value) => {
-    const nextInput = [...input];
-    nextInput[rowIndex][columnIndex] = value;
-    setInput(nextInput);
-  };
-
   const onReset = () => {
-    const query = new URLSearchParams(window.location.search).get('q');
-    if (query) {
-      const queryInput = query.split('\n').map((row) => row.split('\t'));
-      setInput(() => [...queryInput]);
-    } else {
-      setInput(() => [...Array.from(new Array(10), () => Array.from(new Array(5), () => ''))]);
-    }
+    const query = new URLSearchParams(window.location.search).get('q') || decodeURIComponent(examples.helloWorld);
+    const queryInput = query.split('\n').map((row) => row.split('\t').map((cell) => ({ value: cell })));
+    setInput(() => [...queryInput]);
+    setLogs([]);
   };
 
   const collectDebug = (state) => {
@@ -44,9 +50,7 @@ function App() {
       cells: inputRow.map((inputCell, colIndex) => ({
         index: colIndex,
         rowIndex: rowIndex,
-        instruction: {
-          value: inputCell,
-        },
+        instruction: inputCell,
       })),
     }));
 
@@ -65,7 +69,7 @@ function App() {
   };
 
   const onDebug = () => {
-    const str = input.map((row) => row.map((cell) => cell).join('\t')).join('\n');
+    const str = input.map((row) => row.map((cell) => cell.value).join('\t')).join('\n');
     const url = encodeURIComponent(str);
     console.log(url);
   };
@@ -81,7 +85,7 @@ function App() {
       const debug = debugs[i];
       if (debug.type === 'state') {
         setInput(() => {
-          const newInput = [...debug.state.map((row) => row.map((cell) => cell.value))];
+          const newInput = [...debug.state.map((row) => row.map((cell) => cell))];
           return newInput;
         });
       } else {
@@ -90,25 +94,29 @@ function App() {
     }, 500);
   };
 
+  const onChangeData = (nextInput) => {
+    setInput([...nextInput]);
+  };
+
   return (
     <div className="App">
-      <table>
-        <tbody>
-          {input.map((row, rowIndex) => (
-            <tr>
-              {row.map((cell, colIndex) => (
-                <td>
-                  <input
-                    type="text"
-                    onChange={(evt) => onInput(rowIndex, colIndex, evt.target.value)}
-                    value={cell ? cell : ''}
-                  />
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div style={{ marginBottom: 10 }}>
+        <label>
+          Examples
+          <select
+            style={{ marginLeft: 5 }}
+            onChange={(event) => {
+              const value = event.target.value;
+              window.open(`?q=${examples[value]}`, '_self');
+            }}
+          >
+            <option value={'helloWorld'}>Hello World</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <Spreadsheet data={input} onChange={onChangeData}></Spreadsheet>
+      </div>
       <button onClick={onRun}>Run</button>
       <button onClick={onReset}>Reset</button>
       <button onClick={onDebug}>Debug</button>
@@ -116,8 +124,8 @@ function App() {
       <div>
         <h2>stdout</h2>
         <div>
-          {logs.map((log) => (
-            <span>{log}</span>
+          {logs.map((log, i) => (
+            <span key={i}>{log}</span>
           ))}
         </div>
       </div>
