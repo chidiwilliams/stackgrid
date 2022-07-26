@@ -15,9 +15,11 @@ const initialDebug = [];
 
 const examples = {
   helloWorld:
-    '%09%09%09%09%0AJSE%20B2%20A5%0933%09%09%09%0APRINTASCII%20B2%09100%09%09%09%0AJUMP%20A2%09108%09%09%09%0AEXIT%09114%09%09%09%0A%09111%09%09%09%0A%0987%09%09%09%0A%0932%09%09%09%0A%0944%09%09%09%0A%09111%09%09%09%0A%09108%09%09%09%0A%09108%09%09%09%0A%09101%09%09%09%0A%0972%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09%0A%09%09%09%09',
+    '%09%09%09%09%09%09%09%09%09%0AJSE%20B2%20A5%0933%09%09%09%09%09%09%09%09%0APRINTASCII%20B2%09100%09%09%09%09%09%09%09%09%0AJUMP%20A2%09108%09%09%09%09%09%09%09%09%0AEXIT%09114%09%09%09%09%09%09%09%09%0A%09111%09%09%09%09%09%09%09%09%0A%0987%09%09%09%09%09%09%09%09%0A%0932%09%09%09%09%09%09%09%09%0A%0944%09%09%09%09%09%09%09%09%0A%09111%09%09%09%09%09%09%09%09%0A%09108%09%09%09%09%09%09%09%09%0A%09108%09%09%09%09%09%09%09%09%0A%09101%09%09%09%09%09%09%09%09%0A%0972%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09',
   fizzBuzz:
-    '%09FizzBuzz%09%09%09%09%09%0AJEQ%20E2%20F2%20A37%09Exit%20if%20acc%20reaches%20limit%093%0932%090%09100%09%0AINC%20E2%09Increment%20acc%09%09122%09%09%09%0ADUP%20E2%09Duplicate%20acc%20for%20incoming%20mod%09%09122%09%09%09%0ADUP%20C14%09Duplicate%2015%20for%20incoming%20mod%09%09105%09%09%09%0AMOD%20E2%20C14%09Mod%20acc%20and%2015%09%0970%09%09%09%0AJNE%20E2%20E8%20A13%09Compare%20mod%20and%200%09%09%09%09%09%0APOP%20E2%09Remove%20mod%20result%20for%20if%095%0932%090%09%09%0ACOPY%20D14%20F4%09Copy%20FizzBuzz%20to%20free%20space%09%09122%09%09%09%0AJSE%20F4%20A2%09While%20F4%20or%20back%20to%20top%09%09122%09%09%09%0APRINTASCII%20F4%09Print%20top%20of%20F4%09%09117%09%09%09%0AJUMP%20A10%09Check%20for%20more%20characters%09%0966%09%09%09%0APOP%20E2%09Mod%2015%20was%20not%200%20check%20for%203%09%09%09%09%09%0ADUP%20E2%09Duplicate%20acc%20for%20incoming%20mod%0915%0932%09%09%09%0ADUP%20C2%09Duplicate%203%20for%20incoming%20mod%09%09122%09%09%09%0AMOD%20E2%20C2%09Mod%20acc%20and%203%09%09122%09%09%09%0AJNE%20E2%20E8%20A23%09Compare%20mod%20and%200%09%09117%09%09%09%0APOP%20E2%09Remove%20mod%20result%20for%20if%09%0966%09%09%09%0ACOPY%20D2%20F4%09Copy%20Fizz%20to%20free%20space%09%09122%09%09%09%0AJSE%20F4%20A2%09While%20F4%20or%20back%20to%20top%09%09122%09%09%09%0APRINTASCII%20F4%09Print%20top%20of%20F4%09%09105%09%09%09%0AJUMP%20A20%09Check%20for%20more%20characters%09%0970%09%09%09%0APOP%20E2%09Mod%203%20was%20not%200%20check%20for%205%09%09%09%09%09%0ADUP%20E2%09Duplicate%20acc%20for%20incoming%20mod%09%09%09%09%09%0ADUP%20C8%09Duplicate%205%20for%20incoming%20mod%09%09%09%09%09%0AMOD%20E2%20C8%09Mod%20acc%20and%2015%09%09%09%09%09%0AJNE%20E2%20E8%20A33%09Compare%20mod%20and%200%09%09%09%09%09%0APOP%20E2%09Remove%20mod%20result%20for%20if%09%09%09%09%09%0ACOPY%20D8%20F4%09Copy%20Buzz%20to%20free%20space%09%09%09%09%09%0AJSE%20F4%20A2%09While%20F4%20or%20back%20to%20top%09%09%09%09%09%0APRINTASCII%20F4%09Print%20top%20of%20F4%09%09%09%09%09%0AJUMP%20A30%09Check%20for%20more%20characters%09%09%09%09%09%0APOP%20E2%09No%20mod%20so%20remove%20mod%20for%20else%09%09%09%09%09%0ADUP%20E2%09Duplicate%20acc%20for%20printing%09%09%09%09%09%0APRINT%20E2%09Print%20acc%09%09%09%09%09%0AJUMP%20A2%09Back%20to%20top%09%09%09%09%09%0AEXIT%09Exit%20program%09%09%09%09%09%0A%09%09%09%09%09%09',
+    '%09FizzBuzz%09%09%09%09%09%09%09%09%0AJEQ%20E2%20F2%20A37%09Exit%20if%20acc%20reaches%20limit%093%0932%090%09100%09%09%09%09%0AINC%20E2%09Increment%20acc%09%09122%09%09%09%09%09%09%0ADUP%20E2%09Duplicate%20acc%20for%20incoming%20mod%09%09122%09%09%09%09%09%09%0ADUP%20C14%09Duplicate%2015%20for%20incoming%20mod%09%09105%09%09%09%09%09%09%0AMOD%20E2%20C14%09Mod%20acc%20and%2015%09%0970%09%09%09%09%09%09%0AJNE%20E2%20E8%20A13%09Compare%20mod%20and%200%09%09%09%09%09%09%09%09%0APOP%20E2%09Remove%20mod%20result%20for%20if%095%0932%090%09%09%09%09%09%0ACOPY%20D14%20F4%09Copy%20FizzBuzz%20to%20free%20space%09%09122%09%09%09%09%09%09%0AJSE%20F4%20A2%09While%20F4%20or%20back%20to%20top%09%09122%09%09%09%09%09%09%0APRINTASCII%20F4%09Print%20top%20of%20F4%09%09117%09%09%09%09%09%09%0AJUMP%20A10%09Check%20for%20more%20characters%09%0966%09%09%09%09%09%09%0APOP%20E2%09Mod%2015%20was%20not%200%20check%20for%203%09%09%09%09%09%09%09%09%0ADUP%20E2%09Duplicate%20acc%20for%20incoming%20mod%0915%0932%09%09%09%09%09%09%0ADUP%20C2%09Duplicate%203%20for%20incoming%20mod%09%09122%09%09%09%09%09%09%0AMOD%20E2%20C2%09Mod%20acc%20and%203%09%09122%09%09%09%09%09%09%0AJNE%20E2%20E8%20A23%09Compare%20mod%20and%200%09%09117%09%09%09%09%09%09%0APOP%20E2%09Remove%20mod%20result%20for%20if%09%0966%09%09%09%09%09%09%0ACOPY%20D2%20F4%09Copy%20Fizz%20to%20free%20space%09%09122%09%09%09%09%09%09%0AJSE%20F4%20A2%09While%20F4%20or%20back%20to%20top%09%09122%09%09%09%09%09%09%0APRINTASCII%20F4%09Print%20top%20of%20F4%09%09105%09%09%09%09%09%09%0AJUMP%20A20%09Check%20for%20more%20characters%09%0970%09%09%09%09%09%09%0APOP%20E2%09Mod%203%20was%20not%200%20check%20for%205%09%09%09%09%09%09%09%09%0ADUP%20E2%09Duplicate%20acc%20for%20incoming%20mod%09%09%09%09%09%09%09%09%0ADUP%20C8%09Duplicate%205%20for%20incoming%20mod%09%09%09%09%09%09%09%09%0AMOD%20E2%20C8%09Mod%20acc%20and%2015%09%09%09%09%09%09%09%09%0AJNE%20E2%20E8%20A33%09Compare%20mod%20and%200%09%09%09%09%09%09%09%09%0APOP%20E2%09Remove%20mod%20result%20for%20if%09%09%09%09%09%09%09%09%0ACOPY%20D8%20F4%09Copy%20Buzz%20to%20free%20space%09%09%09%09%09%09%09%09%0AJSE%20F4%20A2%09While%20F4%20or%20back%20to%20top%09%09%09%09%09%09%09%09%0APRINTASCII%20F4%09Print%20top%20of%20F4%09%09%09%09%09%09%09%09%0AJUMP%20A30%09Check%20for%20more%20characters%09%09%09%09%09%09%09%09%0APOP%20E2%09No%20mod%20so%20remove%20mod%20for%20else%09%09%09%09%09%09%09%09%0ADUP%20E2%09Duplicate%20acc%20for%20printing%09%09%09%09%09%09%09%09%0APRINT%20E2%09Print%20acc%09%09%09%09%09%09%09%09%0AJUMP%20A2%09Back%20to%20top%09%09%09%09%09%09%09%09%0AEXIT%09Exit%20program%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09',
+  empty:
+    '%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09%0A%09%09%09%09%09%09%09%09%09',
 };
 
 /**
@@ -29,13 +31,14 @@ function App() {
   const [input, setInput] = useState(ip);
   const [debugs, setDebugs] = useState(initialDebug);
   const [logs, setLogs] = useState(initialLogs);
+  const [selectedExample, setSelectedExample] = useState('');
 
   useEffect(() => {
     onReset();
   }, []);
 
-  const onReset = () => {
-    const query = new URLSearchParams(window.location.search).get('q') || decodeURIComponent(examples.helloWorld);
+  const onReset = (state = examples.empty) => {
+    const query = new URLSearchParams(window.location.search).get('q') || decodeURIComponent(state);
     const queryInput = query.split('\n').map((row) => row.split('\t').map((cell) => ({ value: cell })));
     setInput(() => [...queryInput]);
     setLogs([]);
@@ -77,6 +80,8 @@ function App() {
   };
 
   const onReplay = () => {
+    setLogs((logs) => [...logs, 'replaying...\n']);
+
     let i = 0;
     const interval = setInterval(() => {
       if (i++ >= debugs.length - 1) {
@@ -120,7 +125,7 @@ function App() {
     <div className="App">
       <h1>StackGrid Playground</h1>
       <p>
-        Select an example, click Run, then click Replay to watch how the grid changed.{' '}
+        Select an example (try Fizzbuzz!), click Run, then click Replay to watch the grid go.{' '}
         <a target="__blank" href="https://github.com/langjam/jam0003/tree/main/stackgrid">
           Learn more
         </a>
@@ -133,10 +138,11 @@ function App() {
             style={{ marginLeft: 5 }}
             onChange={(event) => {
               const value = event.target.value;
-              window.open(`?q=${examples[value]}`, '_self');
+              setSelectedExample(value);
+              onReset(examples[value]);
             }}
           >
-            <option value={'--'}>--</option>
+            <option value={'empty'}>--</option>
             <option value={'helloWorld'}>Hello World</option>
             <option value={'fizzBuzz'}>FizzBuzz</option>
           </select>
@@ -150,7 +156,7 @@ function App() {
         <Spreadsheet data={input} onChange={onChangeData}></Spreadsheet>
       </div>
       <button onClick={onRun}>Run</button>
-      <button onClick={onReset}>Reset</button>
+      <button onClick={() => onReset(selectedExample)}>Reset</button>
       <button onClick={onDebug}>Debug</button>
       <button onClick={onReplay}>Replay</button>
 
